@@ -1,0 +1,35 @@
+Para enpoints /pregunta-random-gpt y /pregunta-random-gemini
+
+{
+  "rol": "Data Science"
+}
+
+---------------------------------------------------------------------------
+
+Para endpoint /transcribe-audio
+
+{
+  "file_name": "output.wav",
+  "folder": "audio",
+  "role": "Data Science",
+  "question": "¿Cuál es la diferencia entre la regularización L1 y L2?"
+}
+
+--------------------------------------------------------------------------
+
+Para endpoints check-respuesta-gemini / check-respuesta-gpt
+
+{
+  "rol": "Data Science",
+  "pregunta": "¿Cuál es la diferencia entre la regularización L1 y L2?",
+  "respuesta": "Un escenario donde sería preferiblemente usar regularización L1 en lugar de L2 es cuando se trabaja con un conjunto de datos que tiene un número elevado de variables predictoras, muchas de las cuales podrían ser irrelevantes o redundantes y se desea automáticamente seleccionar la más importante."
+}
+
+
+Si desean probar los pasos serian
+
+1 - Obtener una pregunta random con endpoint /pregunta-random-gpt o /pregunta-random-gemini
+2 - responderla en audio ejecutando record-audio.py. Esto guarda el audio en la carpeta audio.
+3 - Transcribir el audio a texto con el endpoint /transcribe-audio
+4 - Con la transcripcion del audio, chequear la respuesta con los endpoints check-respuesta-gemini 
+    o check-respuesta-gpt. Se debe pasar el rol, pregunta, respuesta.
