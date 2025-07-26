@@ -17,7 +17,7 @@ Este proyecto permite grabar audio, transcribirlo usando Whisper, generar pregun
    pip install -r requeriments.txt
    ```
 
-3. Crear un archivo `.env` con las siguiente variables:
+3. Crear un archivo `.env` en el escritorio raiz con las siguiente variables:
 
    ```
    GEMINI_API_KEY='APIKEY-GEMINI'
