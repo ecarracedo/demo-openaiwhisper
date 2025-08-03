@@ -70,7 +70,7 @@ def obtener_pregunta_random(request: RolRequest):
 @app.post("/pregunta-random-gemini")
 async def pregunta_random_gemini(request: RolRequest):
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-2.0-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash', temperature=0)
 
     """
     Genera texto usando el modelo Gemini AI basado en un prompt.
@@ -111,7 +111,7 @@ def transcribe_audio(data: AudioRequest):
 @app.post("/check-respuesta-gemini")
 async def check_respuesta_gemini(request: CheckResponse):
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-2.0-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash', temperature=0)
 
     """
     Genera texto usando el modelo Gemini AI basado en un prompt.
@@ -132,14 +132,14 @@ async def check_respuesta_gemini(request: CheckResponse):
         raise HTTPException(status_code=500, detail=f"Error al llamar a la API de Gemini: {str(e)}")
     
     if response.text.strip().lower() == "sí":
-        return {"role": request.rol,
+        return {"rol": request.rol,
                 "pregunta": request.pregunta,
                 "respuesta": request.respuesta,
                 "correcta": 1
                 }
               
     else:
-          return {"role": request.rol,
+          return {"rol": request.rol,
                 "pregunta": request.pregunta,
                 "respuesta": request.respuesta,
                 "correcta": 0
