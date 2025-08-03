@@ -103,7 +103,7 @@ def transcribe_audio(data: AudioRequest):
         return {"error": f"Error al transcribir: {str(e)}"}
 
     return {
-        "role": data.role,
+        "rol": data.role,
         "question": data.question,
         "transcription": transcription
     }
